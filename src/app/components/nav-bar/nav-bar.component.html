@@ -1,3 +1,23 @@
-<p>
-  nav-bar works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="'/home'">
+        Home
+      </ion-button>
+    </ion-buttons>
+   
+    <ion-buttons slot="end">
+      <!-- Botão para Sign-Up -->
+      <ion-button [routerLink]="'/sign-up'">
+        Sign-Up
+      </ion-button>
+      <!-- Botão para Login -->
+      <ion-button [routerLink]="'/login'">
+        Login
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+

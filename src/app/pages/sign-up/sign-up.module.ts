@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { IonicModule } from '@ionic/angular';
-
+import { ComponentsModule } from 'src/app/components/components.module';
 import { SignUpPageRoutingModule } from './sign-up-routing.module';
 
 import { SignUpPage } from './sign-up.page';
+
 
 @NgModule({
   imports: [
@@ -14,8 +15,9 @@ import { SignUpPage } from './sign-up.page';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    SignUpPageRoutingModule
+    SignUpPageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [SignUpPage]
+  declarations: [SignUpPage,]
 })
 export class SignUpPageModule {}
