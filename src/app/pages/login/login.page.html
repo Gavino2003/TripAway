@@ -1,10 +1,7 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true" class="ion-padding">
+  <app-nav-bar></app-nav-bar>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <ion-list>
       <ion-item>
