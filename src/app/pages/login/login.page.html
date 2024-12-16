@@ -26,10 +26,13 @@
         <ion-text color="danger" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
           Password is required
         </ion-text>
+        <ion-item>
+          <ion-label position="center">Esqueceu a sua palavra-passe?</ion-label>
+        </ion-item>
       </ion-list>
 
       <div class="ion-padding">
-        <ion-button expand="block" type="submit">Login</ion-button>
+        <ion-button expand="block" type="submit">LOGIN</ion-button>
       </div>
     </form>
   </div>
