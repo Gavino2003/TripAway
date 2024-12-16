@@ -1,0 +1,39 @@
+ion-footer {
+    --background: rgba(0, 0, 0, 0.7); /* Fundo translúcido */
+    padding: 10px 0; /* Distância entre o conteúdo e as bordas */
+  }
+  
+  ion-toolbar {
+    display: flex;
+    justify-content: space-between; /* Espaça os itens nas extremidades */
+    align-items: center; /* Alinha verticalmente os itens */
+  }
+  
+  .footer-content {
+    display: flex;
+    width: 100%; /* Garantir que ocupa a largura total do toolbar */
+    justify-content: space-between; /* Espaçar os itens à esquerda e à direita */
+  }
+  
+  .footer-left,
+  .footer-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-left span,
+  .footer-right span {
+    color: white; /* Cor do texto */
+    font-size: 14px; /* Tamanho da fonte */
+  }
+  
+  .footer-left span {
+    padding-left: 10px;
+    font-weight: bold; /* Deixa o nome em negrito */
+  }
+  
+  .footer-right span {
+    font-size: 15px; /* Tamanho da fonte menor para a versão */
+    padding-right: 10px;
+  }
+  
