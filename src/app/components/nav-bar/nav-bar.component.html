@@ -1,23 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    
-    <ion-buttons slot="start">
-      <ion-button [routerLink]="'/home'">
-        Home
+    <ion-buttons>
+      <ion-title>
+      <ion-button 
+        [routerLink]="'/following'" 
+        routerLinkActive="active-button"
+      >
+        A seguir
       </ion-button>
-    </ion-buttons>
-   
-    <ion-buttons slot="end">
-      <!-- Botão para Sign-Up -->
-      <ion-button [routerLink]="'/sign-up'">
-        Sign-Up
+      <ion-button 
+        [routerLink]="'/sign-up'" 
+        routerLinkActive="active-button"
+      >
+        Feed
       </ion-button>
-      <!-- Botão para Login -->
-      <ion-button [routerLink]="'/login'">
-        Login
+      <ion-button 
+        [routerLink]="'/login'" 
+        routerLinkActive="active-button"
+      >
+        Meu Tour
       </ion-button>
+    </ion-title>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-
