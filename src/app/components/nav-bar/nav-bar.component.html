@@ -1,3 +1,26 @@
-<p>
-  nav-bar works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-title>
+      <ion-button 
+        [routerLink]="'/following'" 
+        routerLinkActive="active-button"
+      >
+        A seguir
+      </ion-button>
+      <ion-button 
+        [routerLink]="'/sign-up'" 
+        routerLinkActive="active-button"
+      >
+        Feed
+      </ion-button>
+      <ion-button 
+        [routerLink]="'/login'" 
+        routerLinkActive="active-button"
+      >
+        Meu Tour
+      </ion-button>
+    </ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

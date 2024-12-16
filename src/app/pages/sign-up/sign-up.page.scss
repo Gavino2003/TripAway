@@ -1,11 +1,48 @@
-ion-content {
-    --background: #f4f7fc;
-  }
+
   
   ion-item {
     margin-bottom: 20px;
+    --background: transparent;
   }
   
-  ion-button {
-    margin-top: 20px;
+  ion-button{
+    --background: #28AD82; /* Fundo com gradiente */
+    --color: white;
+    --border-radius: 20PX; /* Arredondar os cantos */
+    font-size: 16px; /* Tamanho do texto */
+    --background-hover : #3bb890;
   }
+  ion-content {
+    --ion-background-color: transparent; /* Torna o fundo transparente para que o gradiente seja visível */
+    background: linear-gradient(135deg, 
+      rgba(62, 102, 116, 0.86), /* Cor 3E6674 com alpha de 86% */
+      rgba(21, 38, 46, 0.75)  /* Cor 15262E com alpha de 75% */
+    );
+  }
+  .form-container {
+    --background: white;
+  }
+  ion-input {
+    --background: white; /* Define o fundo do campo de entrada */
+    --border-radius: 20px; /* Raio de borda para os cantos arredondados */
+       /* Remover sombra para garantir que a borda seja visível */
+    border: 2px solid black;
+    border-radius: 20px;
+    font-size: 20px;  /* Tamanho da fonte */
+    color: black;     /* Cor do texto */
+  
+    --padding-start: 10px; /* Padding esquerdo */
+    --padding-end: 10px;   /* Padding direito */
+    --padding-top: 10px;   /* Padding superior */
+    --padding-bottom: 10px; /* Padding inferior */
+  }
+  
+  ion-input .input-wrapper {
+    border-radius: 20px; /* Garante que a borda arredondada seja aplicada à área interna do input */
+    border: 2px solid black; /* Aplica a borda preta */
+  }
+  ion-label{
+    color: black;
+  }
+  
+  

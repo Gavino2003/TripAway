@@ -1,23 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
 
+<app-nav-bar color="success"></app-nav-bar>
 <ion-content [fullscreen]="true" class="ion-padding">
-  <div class="form-container">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <ion-list>
-        <ion-item>
-          <ion-label position="floating">Email</ion-label>
-          <ion-input type="email" formControlName="email"></ion-input>
-        </ion-item>
-        <ion-text color="danger" *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
-          É necessário email
-        </ion-text>
-        <ion-text color="danger" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
-          Utiliza um email válido
-        </ion-text>
+
+  
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+        É necessário email
+      </ion-text>
+      <ion-text color="danger" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+        Utiliza um email válido
+      </ion-text>
+
 
         <ion-item>
           <ion-label position="floating">Password</ion-label>
@@ -35,5 +33,4 @@
         <ion-button expand="block" type="submit">LOGIN</ion-button>
       </div>
     </form>
-  </div>
 </ion-content>
