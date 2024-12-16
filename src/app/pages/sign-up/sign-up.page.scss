@@ -1,48 +1,67 @@
+ion-item {
+  margin-bottom: 20px;
+  --background: transparent; /* Torna o fundo transparente */
+  --border-width: 0; /* Remove a borda entre os itens */
+  color: black;
+}
 
+ion-button {
+  --background: #28AD82;
+  --color: white;
+  --border-radius: 20px;
+  font-size: 16px;
+  --background-hover: #3bb890;
+}
+
+ion-content {
+  --ion-background-color: transparent;
+  background: linear-gradient(135deg, 
+    rgba(62, 102, 116, 0.86), 
+    rgba(21, 38, 46, 0.75)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.form-wrapper {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.logo-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+ion-input {
+  --background: white;
+  font-size: 20px;
+  color: black;
   
-  ion-item {
-    margin-bottom: 20px;
-    --background: transparent;
-  }
-  
-  ion-button{
-    --background: #28AD82; /* Fundo com gradiente */
-    --color: white;
-    --border-radius: 20PX; /* Arredondar os cantos */
-    font-size: 16px; /* Tamanho do texto */
-    --background-hover : #3bb890;
-  }
-  ion-content {
-    --ion-background-color: transparent; /* Torna o fundo transparente para que o gradiente seja visível */
-    background: linear-gradient(135deg, 
-      rgba(62, 102, 116, 0.86), /* Cor 3E6674 com alpha de 86% */
-      rgba(21, 38, 46, 0.75)  /* Cor 15262E com alpha de 75% */
-    );
-  }
-  .form-container {
-    --background: white;
-  }
-  ion-input {
-    --background: white; /* Define o fundo do campo de entrada */
-    --border-radius: 20px; /* Raio de borda para os cantos arredondados */
-       /* Remover sombra para garantir que a borda seja visível */
-    border: 2px solid black;
-    border-radius: 20px;
-    font-size: 20px;  /* Tamanho da fonte */
-    color: black;     /* Cor do texto */
-  
-    --padding-start: 10px; /* Padding esquerdo */
-    --padding-end: 10px;   /* Padding direito */
-    --padding-top: 10px;   /* Padding superior */
-    --padding-bottom: 10px; /* Padding inferior */
-  }
-  
-  ion-input .input-wrapper {
-    border-radius: 20px; /* Garante que a borda arredondada seja aplicada à área interna do input */
-    border: 2px solid black; /* Aplica a borda preta */
-  }
-  ion-label{
-    color: black;
-  }
-  
-  
+}
+#endformtext{
+  color: black;
+  text-align: center;
+  font-size: small;
+  margin: 20px;
+}
+ion-label {
+  color: black;
+}

@@ -59,5 +59,12 @@ export class SignUpPage {
     this.router.navigate(['/home']);
   }
 
-  
+  togglePasswordVisibility(field: string, show: boolean) {
+    const input = <HTMLInputElement>document.querySelector(`input[name="${field}"]`);
+    if (show) {
+      input.type = "text";  // Torna a senha visível
+    } else {
+      input.type = "password";  // Volta a esconder a senha
+    }
+  }
 }
