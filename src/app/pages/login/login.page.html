@@ -2,35 +2,27 @@
 <app-nav-bar color="success"></app-nav-bar>
 <ion-content [fullscreen]="true" class="ion-padding">
 
-  
+  <div class = "form-container">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <ion-list>
       <ion-item>
         <ion-label position="floating">Email</ion-label>
-        <ion-input type="email" formControlName="email"></ion-input>
+        <ion-input type="email"formControlName="email"></ion-input>
       </ion-item>
-      <ion-text color="danger" *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
-        É necessário email
-      </ion-text>
-      <ion-text color="danger" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
-        Utiliza um email válido
-      </ion-text>
-
-
         <ion-item>
           <ion-label position="floating">Password</ion-label>
           <ion-input type="password" formControlName="password"></ion-input>
         </ion-item>
-        <ion-text color="danger" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
-          Password is required
-        </ion-text>
-        <ion-item>
-          <ion-label position="center">Esqueceu a sua palavra-passe?</ion-label>
-        </ion-item>
+        <ion-item class ="positionlabel">
+        <ion-label position="floating">Esqueceu a sua palavra-passe?</ion-label>
+      </ion-item>
       </ion-list>
-
+      
       <div class="ion-padding">
         <ion-button expand="block" type="submit">LOGIN</ion-button>
       </div>
     </form>
+
+    
+  </div>
 </ion-content>
