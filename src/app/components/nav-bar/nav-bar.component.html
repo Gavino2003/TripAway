@@ -1,20 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <!-- Botão Home -->
-    
     <ion-buttons>
-      
-      <ion-button [routerLink]="'/home'">
-        <img src="https://thumb.ac-illust.com/dd/dde7b0cc2302b30858967da8211f107e_w.jpeg" alt="Descrição da Imagem" class="nav-logo" />
-      </ion-button>
       <ion-title>
-      
-      <ion-button [routerLink]="'/sign-up'">Sign-Up</ion-button>
-      <ion-button [routerLink]="'/login'">Login</ion-button>
+      <ion-button 
+        [routerLink]="'/following'" 
+        routerLinkActive="active-button"
+      >
+        A seguir
+      </ion-button>
+      <ion-button 
+        [routerLink]="'/sign-up'" 
+        routerLinkActive="active-button"
+      >
+        Feed
+      </ion-button>
+      <ion-button 
+        [routerLink]="'/login'" 
+        routerLinkActive="active-button"
+      >
+        Meu Tour
+      </ion-button>
     </ion-title>
     </ion-buttons>
-  
-    
-   
   </ion-toolbar>
 </ion-header>
