@@ -1,0 +1,33 @@
+.fab-container {
+    position: relative;
+  }
+  
+  ion-fab-button {
+    --background: #28ad82; /* Cor do botão principal */
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  ion-fab {
+    margin: 0;
+  }
+  
+  ion-fab-button {
+    margin-bottom: 10px; /* Distância entre os botões */
+  }
+  
+  ion-fab-button ion-icon {
+    color: white;
+  }
+  
+  ion-fab-button:hover {
+    transform: scale(1.1); /* Efeito de aumento no botão principal */
+  }
+  
+  ion-fab-button:focus {
+    outline: none;
+  }
+  
+  ion-fab-button + ion-fab-button {
+    margin-top: 10px; /* Distância entre os botões adicionais */
+  }

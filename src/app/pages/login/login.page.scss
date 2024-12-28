@@ -1,63 +1,75 @@
-.form-container{
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    background-color: white;
-    border-radius: 20px;
-    padding: 5%;
-    margin: 0;
+ion-item {
+  margin-bottom: 20px;
+  --background: transparent; /* Torna o fundo transparente */
+  --border-width: 0; /* Remove a borda entre os itens */
+  color: black;
 }
 
-ion-content{
-    --ion-background-color: transparent; 
-    background: linear-gradient(135deg, 
-         rgba(62, 102, 116, 0.86), 
-         rgba(21, 38, 46, 0.75)  
-    );
+ion-button {
+  --background: #28AD82;
+  --color: white;
+  --border-radius: 20px;
+  font-size: 16px;
+  --background-hover: #3bb890;
 }
 
-ion-button{
-    --background: #28AD82;
-    --background-hover: #3bb890;
-    --background-activated: #3bb890; 
-    --color: white;
-    --border-radius: 20PX; 
-    font-size: 16px;
+ion-content {
+  --ion-background-color: transparent;
+  background: linear-gradient(135deg, 
+    rgba(62, 102, 116, 0.86), 
+    rgba(21, 38, 46, 0.75)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.form-wrapper {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.logo-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+ion-input {
+  --background: white;
+  font-size: 20px;
+  color: black;
+  
+}
+#endformtext{
+  color: black;
+  text-align: center;
+  font-size: small;
+  margin: 20px;
+}
+ion-label {
+  color: black;
+}
 .positionlabel {
-    color: white; 
-    font-size: 13px;
-    text-align: center; 
-    text-decoration: underline;
+  color: black; 
+  font-size: 13px;
+  text-align: center; 
+  text-decoration: underline;
+  margin-top: 20px;
+  border: 0px;
 }
-
-
-
-  ion-input {
-    --background: white; /* Define o fundo do campo de entrada */
-    --border-radius: 20px; /* Raio de borda para os cantos arredondados */
-       /* Remover sombra para garantir que a borda seja visível */
-    border: 2px solid black;
-    border-radius: 20px;
-    font-size: 20px;  /* Tamanho da fonte */
-    color: black;     /* Cor do texto */
-  
-    --padding-start: 10px; /* Padding esquerdo */ 
-    --padding-bottom: 10px; /* Padding inferior */
-  }
-  ion-list{
-    --background: transparent;
-  }
-  ion-item {
-    margin-bottom: 20px;
-    --background: white;
-  }
-
-  form {
-    --background: transparent;
-    z-index: 200;
-  }
-  

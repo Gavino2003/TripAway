@@ -1,0 +1,30 @@
+<ion-item lines="none" class="custom-item">
+  <ion-card class="custom-card">
+    <!-- Imagem principal -->
+    <img
+      alt="place"
+      class="tripimage"
+      src="https://ionicframework.com/docs/img/demos/card-media.png"
+    />
+
+    <!-- Secção transparente -->
+    <ion-card-content class="overlay">
+      <!-- Lado esquerdo -->
+      <div class="left-section">
+        <ion-icon name="person-circle-outline" class="usericon"></ion-icon>
+        <ion-text>Vasco Gavino</ion-text>
+      </div>
+
+      <!-- Lado direito -->
+      <div class="right-section">
+        <ion-icon name="heart-outline" class="icon-button"></ion-icon>
+        <ion-icon name="chatbubbles-outline" class="icon-button"></ion-icon>
+      </div>
+    </ion-card-content>
+
+    <!-- Exibição do texto dinâmico -->
+    <div class="hover-text">
+      {{ local }} <!-- Aqui exibimos a variável 'local' -->
+    </div>
+  </ion-card>
+</ion-item>
