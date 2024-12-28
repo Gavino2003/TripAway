@@ -39,10 +39,67 @@ export class TravelsService {
       //await this.noteToast('erro', 'bottom', error.error);
     }
   }
+
+  async postTravel(travel: Travel) {
+    //const loading = await this.showLoading();
+
+    const headers = new HttpHeaders({
+      Authorization: `Basic ${btoa(`${this.username}:${this.password}`)}`,
+    });
+
+    try {
+      await firstValueFrom(this.http.post(`${this.apiUrl}/travels`, travel, { headers }));
+      //loading.dismiss();
+      //await this.noteToast('notecreated', 'bottom');
+    } catch (error: any) {
+      //loading.dismiss();
+      //await this.noteToast('erro', 'bottom', error.error);
+    }
+  }
+  
+  async deleteTravel(travel: Travel) {
+    //const loading = await this.showLoading();
+
+    const headers = new HttpHeaders({
+      Authorization: `Basic ${btoa(`${this.username}:${this.password}`)}`,
+    });
+
+    try {
+      await firstValueFrom(this.http.delete(`${this.apiUrl}/travels/${travel.id}`, { headers }));
+      //loading.dismiss();
+      //await this.noteToast('notedeleted', 'bottom');
+    } catch (error: any) {
+      //loading.dismiss();
+      //await this.noteToast('erro', 'bottom', error.error);
+    }
+  }
+
 }
 
 export interface Travel {
-  //id: number;
+  id: string;
+  description: string;
+  type : string;
+  state: string;
+  map: string;
+  startAt: string;
+  endAt: string;
+  createdBy : string;
+  //createdAt: string;
+  //updateBy: string;
+  //updateAt: string;
+  //travelid: string;
+  
+  //startDate: string;
+  //endDate: string;
+  //price: number;
+  prop1: string;//username
+  prop2: string;//password
+  prop3: string;//imagem
+  isFav: boolean;
+}
+export interface TravelLocations {
+  id: string;
   description: string;
   type : string;
   state: string;
@@ -63,4 +120,5 @@ export interface Travel {
   prop3: string;
   isFav: boolean;
 }
+
 
