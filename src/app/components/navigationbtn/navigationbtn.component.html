@@ -1,27 +1,22 @@
-<!-- Botão flutuante principal -->
-<div class="fab-container">
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="toggleFab()">
+<ion-fab slot="fixed" vertical="bottom" horizontal="end" >
+    <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-
-    <!-- Botões adicionais -->
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="fabOpened">
+    <ion-fab-list side="top">
       <ion-fab-button>
-        <ion-icon name="home"></ion-icon>
+        <ion-icon [routerLink]="'/settings'"  name="settings"></ion-icon>
       </ion-fab-button>
       <ion-fab-button>
-        <ion-icon name="heart"></ion-icon>
+        <ion-icon [routerLink]="'/login'" name="person"></ion-icon>
       </ion-fab-button>
       <ion-fab-button>
-        <ion-icon name="chatbubbles"></ion-icon>
+        <ion-icon [routerLink]="'/home'"  name="moon"></ion-icon>
       </ion-fab-button>
+      
       <ion-fab-button>
-        <ion-icon name="settings"></ion-icon>
+        <ion-icon [routerLink]="'/home'"  name="calendar"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button>
-        <ion-icon name="person"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+    </ion-fab-list>
   </ion-fab>
-</div>
+
+
