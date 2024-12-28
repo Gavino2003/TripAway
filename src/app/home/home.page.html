@@ -8,22 +8,8 @@
     </ion-item>
   </div>
 
-  <ion-list lines="inset" class="listaviagens">
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
-    <app-tripcard></app-tripcard>
+  <ion-list lines="inset" class="listaviagens" >
+    <app-tripcard *ngFor="let travel of travels" [travel]="travel"></app-tripcard>
   </ion-list>
 
 

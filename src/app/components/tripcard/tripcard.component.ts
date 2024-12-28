@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tripcard',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tripcard.component.scss'],
 })
 export class TripcardComponent  implements OnInit {
-
+  @Input() travel: any; 
   constructor() { }
   local: string = 'Paris';
   creatorname: string = 'Vasco Gavino'
