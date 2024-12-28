@@ -9,6 +9,7 @@ export class TripcardComponent  implements OnInit {
 
   constructor() { }
   local: string = 'Paris';
+  creatorname: string = 'Vasco Gavino'
   ngOnInit() {}
 
 }
