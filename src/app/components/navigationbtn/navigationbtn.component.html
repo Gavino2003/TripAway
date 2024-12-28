@@ -4,7 +4,7 @@
     </ion-fab-button>
     <ion-fab-list side="top">
       <ion-fab-button>
-        <ion-icon [routerLink]="'/settings'"  name="settings"></ion-icon>
+        <ion-icon [routerLink]="'/settings'" name="settings"></ion-icon>
       </ion-fab-button>
       <ion-fab-button>
         <ion-icon [routerLink]="'/login'" name="person"></ion-icon>
@@ -14,7 +14,7 @@
       </ion-fab-button>
       
       <ion-fab-button>
-        <ion-icon [routerLink]="'/home'"  name="calendar"></ion-icon>
+        <ion-icon [routerLink]="'/home'"  name="calendar" (click)="openModal()"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>

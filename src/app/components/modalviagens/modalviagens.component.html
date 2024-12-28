@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Notas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Descrição</ion-label>
+    <ion-input type="text" placeholder="Digite a descrição" name="descricao">
+      <ion-icon name="text" slot="end"></ion-icon>
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Tipo da viagem</ion-label>
+    <ion-select placeholder="Selecione" name="tipoViagem">
+      <ion-select-option value="familia">Família</ion-select-option>
+      <ion-select-option value="amigos">Amigos</ion-select-option>
+      <ion-select-option value="festival">Festival</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Estado da viagem</ion-label>
+    <ion-select placeholder="Selecione" name="estadoViagem">
+      <ion-select-option value="Porfazer">Por fazer</ion-select-option>
+      <ion-select-option value="Decorrendo">Decorrendo</ion-select-option>
+      <ion-select-option value="Feito">Feito</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Localização</ion-label>
+    <ion-input type="text" placeholder="Digite a localização" name="localizacao">
+      <ion-icon name="location" slot="end"></ion-icon>
+    </ion-input>
+  </ion-item>
+
+</ion-content>
+
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full">Gravar</ion-button>
+  </ion-toolbar>
+</ion-footer>
