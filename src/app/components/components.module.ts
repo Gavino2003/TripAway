@@ -7,10 +7,11 @@ import { NavBar2Component } from './nav-bar2/nav-bar2.component';
 import { FooterComponent } from './footer/footer.component';
 import { TripcardComponent } from './tripcard/tripcard.component';
 import { NavigationbtnComponent } from './navigationbtn/navigationbtn.component';
+import { ModalviagensComponent } from './modalviagens/modalviagens.component';
 
 @NgModule({
-  declarations: [NavBarComponent, NavBar2Component, FooterComponent,TripcardComponent,NavigationbtnComponent], 
+  declarations: [NavBarComponent, NavBar2Component, FooterComponent,TripcardComponent,NavigationbtnComponent, ModalviagensComponent], 
   imports: [CommonModule, IonicModule, RouterModule,],
-  exports: [NavBarComponent, NavBar2Component, FooterComponent,TripcardComponent,NavigationbtnComponent],
+  exports: [NavBarComponent, NavBar2Component, FooterComponent,TripcardComponent,NavigationbtnComponent, ModalviagensComponent],
 })
 export class ComponentsModule {}

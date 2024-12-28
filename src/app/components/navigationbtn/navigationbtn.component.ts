@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ModalController, ToastController } from '@ionic/angular';
+import { ModalviagensComponent } from '../modalviagens/modalviagens.component';
 
 @Component({
   selector: 'app-navigationbtn',
@@ -7,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationbtnComponent  implements OnInit {
   isDarkMode: boolean = false;
-  constructor() { 
+  constructor(private modalController: ModalController) { 
     this.isDarkMode = document.body.classList.contains('dark');
   }
 
+
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: ModalviagensComponent,
+      backdropDismiss: false, // Impede o fechamento clicando fora do modal
+    });
+    await modal.present();
+  }
+  
   ngOnInit() {}
 
   // Função que alterna entre os modos claro e escuro
