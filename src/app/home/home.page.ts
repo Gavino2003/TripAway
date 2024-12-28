@@ -8,9 +8,14 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   constructor(private router: Router) {}
-
+  search: string = '';
+  
   gotologin(){
     this.router.navigate(['/login'])
   }
+
+  
+
+  
 
 }

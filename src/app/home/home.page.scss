@@ -1,27 +1,68 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-content {
+  --ion-background-color: transparent;
+  background: linear-gradient(135deg, 
+    rgba(62, 102, 116, 0.86), 
+    rgba(21, 38, 46, 0.75)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  z-index: 1; 
 }
 
-#container strong {
+.center-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+
+.custom-input {
+  --background: white;
+  --border-radius: 25px; /* Torna as bordas arredondadas */
+  --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra para visual mais elegante */
+  --padding-start: 10px;
+  height: 50px; /* Altura fixa */
+  width: 300px; /* Largura fixa */
+  border: 2px solid black; /* Adiciona uma borda */
+  border-radius: 25px; /* Uniformiza as bordas */
+  overflow: hidden; /* Garante que o conteúdo respeite as bordas */
+  display: flex;
+  color:black;
+  align-items: center;
+}
+
+.custom-input ion-input {
+  background: transparent; /* Remove cor de fundo padrão */
+  border-radius: 0; /* Remove radius interno do input */
+  width: 100%; /* Garante que o input ocupe a largura total */
+  padding: 0 10px; /* Adiciona padding interno */
+  font-size: 16px; /* Ajusta o tamanho do texto */
+  height: 100%; /* Ocupa a altura total do container */
+}
+
+.custom-input ion-icon {
+  color: black;
   font-size: 20px;
-  line-height: 26px;
+  padding: 10px;
+  background: #28AD82;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+ion-list {
+  --ion-item-background: transparent; /* Remove o fundo dos itens */
+  --background: transparent; /* Remove o fundo da lista */
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+ion-item {
+  --border-color: white; /* Remove as linhas entre os itens */
+  
 }
 
-#container a {
-  text-decoration: none;
+.listaviagens {
+  --background: transparent; /* Fundo da lista transparente */
+  border: none; /* Remove bordas adicionais */
+  padding: 0; /* Remove espaçamento interno */
 }
+
+

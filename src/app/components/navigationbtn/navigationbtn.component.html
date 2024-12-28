@@ -1,0 +1,27 @@
+<!-- Botão flutuante principal -->
+<div class="fab-container">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="toggleFab()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+    <!-- Botões adicionais -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="fabOpened">
+      <ion-fab-button>
+        <ion-icon name="home"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="heart"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="chatbubbles"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="settings"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="person"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-fab>
+</div>

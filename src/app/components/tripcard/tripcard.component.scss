@@ -1,0 +1,109 @@
+.custom-item {
+    --background: transparent; /* Remove o fundo do ion-item */
+    padding: 0; /* Remove padding extra */
+    max-width: 1000px; /* Largura máxima para o PC */
+    width: 100%; /* Ocupa 100% da largura disponível */
+    margin: 0 auto; /* Centra o componente */
+    padding: 10px;
+  }
+  
+  /* Media query para dispositivos móveis */
+  @media (max-width: 767px) {
+    .custom-item {
+      width: 100%; /* Ocupa toda a largura do dispositivo no telemóvel */
+      padding-left: 0px;
+    }
+  }
+  .usericon{
+    height: 30px;
+    width: 30px;
+  }
+  .custom-card {
+    width: 100%; /* Faz o cartão ocupar toda a largura */
+    margin: 0; /* Remove margens */
+    box-shadow: none; /* Remove sombras do ion-card */
+    border: none; /* Remove bordas extras */
+    overflow: hidden; /* Garante que o conteúdo respeite o tamanho */
+    position: relative; /* Necessário para o posicionamento do texto */
+  }
+  
+  .tripimage {
+    width: 100%; /* Faz a imagem ocupar toda a largura */
+    height: 150px; /* Define uma altura fixa */
+    object-fit: cover; /* Garante que a imagem preencha o espaço */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Transição suave para zoom e escurecimento */
+  }
+  
+  /* Efeito de escurecimento e zoom na imagem */
+  .tripimage:hover {
+    filter: brightness(0.6); /* Escurece a imagem */
+    transform: scale(1.1); /* Zoom na imagem */
+  }
+  
+  /* Exibição do texto dentro da imagem no hover */
+  .custom-card::after {
+    
+    position: absolute;
+    top: 10px; /* Distância do topo */
+    left: 10px; /* Distância da esquerda */
+    color: white; /* Cor do texto */
+    font-size: 16px; /* Tamanho da fonte */
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro semitransparente */
+    padding: 5px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease; /* Transição suave para a opacidade */
+  }
+  
+  /* Tornar o texto visível quando o rato passa por cima */
+  .custom-card:hover::after {
+    opacity: 1; /* Torna o texto visível ao passar o rato */
+  }
+  
+  .overlay {
+    display: flex;
+    justify-content: space-between; /* Espaça os elementos entre as bordas */
+    align-items: center;
+    padding: 10px; /* Adiciona espaço interno */
+    background: rgba(0, 0, 0, 0.5); /* Fundo transparente escuro */
+    color: white; /* Cor do texto e ícones */
+    position: relative; /* Garante posicionamento interno */
+    height: 50px; /* Altura da secção */
+  }
+  
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre ícone e texto */
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaçamento entre os botões */
+  }
+  
+  .icon-button {
+    font-size: 20px; /* Tamanho dos ícones */
+    cursor: pointer;
+    color: white; /* Cor dos ícones */
+  }
+  /* Exibição do texto dentro da imagem no hover */
+.hover-text {
+    position: absolute;
+    top: 10px; /* Distância do topo */
+    left: 10px; /* Distância da esquerda */
+    color: white; /* Cor do texto */
+    font-size: 16px; /* Tamanho da fonte */
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro semitransparente */
+    padding: 5px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease; /* Transição suave para a opacidade */
+  }
+  
+  /* Tornar o texto visível quando o rato passa por cima */
+  .custom-card:hover .hover-text {
+    opacity: 1; /* Torna o texto visível ao passar o rato */
+  }
+  

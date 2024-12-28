@@ -3,20 +3,37 @@
 <ion-content [fullscreen]="true" class="ion-padding">
 
   <div class = "form-container">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <ion-list>
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="email"formControlName="email"></ion-input>
-      </ion-item>
+    <div class="form-wrapper">
+
+      <div class="logo-container">
+        <img src="../../../assets/icon/favicon.png" alt="Logotipo" class="logo">
+      </div>
+
+  <form (ngSubmit)="onSubmit()">
+    
+      
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="email" placeholder="Email" name="email" required>
+            <ion-icon name="mail" slot="end"></ion-icon>
+          </ion-input>
+        </ion-item>
+
         <ion-item>
           <ion-label position="floating">Password</ion-label>
-          <ion-input type="password" formControlName="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="password" placeholder="Password" name="password" required>
+            <ion-icon name="eye-off" slot="end" 
+              (touchstart)="togglePasswordVisibility('password', true)" 
+              (touchend)="togglePasswordVisibility('password', false)" 
+              (mousedown)="togglePasswordVisibility('password', true)" 
+              (mouseup)="togglePasswordVisibility('password', false)">
+            </ion-icon>
+          </ion-input>
         </ion-item>
-        <ion-item class ="positionlabel">
+        <ion-item lines="none" class ="positionlabel">
         <ion-label position="floating">Esqueceu a sua palavra-passe?</ion-label>
       </ion-item>
-      </ion-list>
+      
       
       <div class="ion-padding">
         <ion-button expand="block" type="submit">LOGIN</ion-button>
@@ -24,5 +41,6 @@
     </form>
 
     
+  </div>
   </div>
 </ion-content>
