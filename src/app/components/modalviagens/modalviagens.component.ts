@@ -8,15 +8,32 @@ import { ModalController } from '@ionic/angular';
 })
 export class ModalviagensComponent  implements OnInit {
 
+  paginaAtual: number = 1;  // Controla qual seção está visível
+  showDateInicio: boolean = false;
+  showDateFim: boolean = false;
+
   constructor(private modalCtrl: ModalController,) { }
 
   ngOnInit() {}
 
-  async dismissModal(message : any = null) {
-    this.modalCtrl.dismiss({message: message})
-  }
-
   async closeModal() {
     this.modalCtrl.dismiss();
+  }
+
+  avancar() {
+    this.paginaAtual = 2;  // Muda para a segunda seção
+  }
+
+  toggleDateInicio() {
+    this.showDateInicio = !this.showDateInicio;
+  }
+
+  toggleDateFim() {
+    this.showDateFim = !this.showDateFim;
+  }
+
+  finalizar() {
+    // Fechar a modal ao finalizar
+    this.closeModal();
   }
 }
