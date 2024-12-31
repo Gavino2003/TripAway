@@ -57,7 +57,7 @@ export class TravelsService {
     }
   }
   
-  async deleteTravel(travel: Travel) {
+  async deleteTravel(travel : any) {
     //const loading = await this.showLoading();
 
     const headers = new HttpHeaders({
@@ -79,8 +79,8 @@ export class TravelsService {
 export interface Travel {
   id: string;
   description: string;
-  type : string;
-  state: string;
+  type : 'lazer' | 'negocios' | 'aventura';
+  state: 'planeamento'|'decorrer' | 'concluida';
   map: string;
   startAt: string;
   endAt: string;
@@ -101,8 +101,8 @@ export interface Travel {
 export interface TravelLocations {
   id: string;
   description: string;
-  type : string;
-  state: string;
+  type : 'lazer' | 'negocios' | 'aventura';
+  state: 'decorrer' | 'concluida' | 'planeamento';
   //map: string;
   startAt: string;
   endAt: string;

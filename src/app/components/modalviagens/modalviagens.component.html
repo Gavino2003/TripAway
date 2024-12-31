@@ -11,45 +11,68 @@
   <div *ngIf="paginaAtual === 1">
     <ion-item>
       <ion-label position="floating">Descrição</ion-label>
-      <ion-input type="text" placeholder="Digite a descrição"></ion-input>
+      <ion-input type="text" placeholder="Digite a descrição" [(ngModel)]="travel.description"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Tipo da Viagem</ion-label>
-      <ion-select placeholder="Selecione">
-        <ion-select-option value="familia">Família</ion-select-option>
-        <ion-select-option value="amigos">Amigos</ion-select-option>
-        <ion-select-option value="festival">Festival</ion-select-option>
+      <ion-select placeholder="Selecione"  [(ngModel)]="travel.type">
+        <ion-select-option value="lazer">Lazer</ion-select-option>
+        <ion-select-option value="negocios">Negocios</ion-select-option>
+        <ion-select-option value="aventura">Aventura</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label>Estado da Viagem</ion-label>
-      <ion-select placeholder="Selecione">
-        <ion-select-option value="TODO">TODO</ion-select-option>
-        <ion-select-option value="DONE">DONE</ion-select-option>
+      <ion-select placeholder="Selecione" [(ngModel)]="travel.state">
+      
+      <ion-select-option value="planeamento">Planeamento</ion-select-option>
+      <ion-select-option value="decorrer">A decorrer</ion-select-option>
+      <ion-select-option value="concluida">Concluida</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Data Início</ion-label>
       <ion-icon name="calendar" slot="end" (click)="toggleDateInicio()"></ion-icon>
-      <ion-datetime *ngIf="showDateInicio" presentation="date" (ionChange)="showDateInicio = false"></ion-datetime>
+      <ion-input 
+      [(ngModel)]="travel.startAt" 
+      [placeholder]="'Selecione a data'" 
+      (click)="toggleDateInicio()"
+      [readonly]="true"
+      [value]="travel.startAt | date:'dd/MM/yyyy'">
+      </ion-input>
+      <ion-datetime *ngIf="showDateInicio" presentation="date" [(ngModel)]="travel.startAt" (ionChange)="toggleDateInicio()" display-format="DD/MM/YYYY"></ion-datetime>
     </ion-item>
-
+    
     <ion-item>
       <ion-label position="floating">Data Fim</ion-label>
       <ion-icon name="calendar" slot="end" (click)="toggleDateFim()"></ion-icon>
-      <ion-datetime *ngIf="showDateFim" presentation="date" (ionChange)="showDateFim = false"></ion-datetime>
+      <ion-input 
+      [(ngModel)]="travel.endAt" 
+      [placeholder]="'Selecione a data'" 
+      (click)="toggleDateFim()"
+      [readonly]="true"
+      [value]="travel.endAt | date:'dd/MM/yyyy'">
+      </ion-input>
+      <ion-datetime *ngIf="showDateFim" presentation="date" [(ngModel)]="travel.endAt" (ionChange)="toggleDateFim()" display-format="DD/MM/YYYY"></ion-datetime>
     </ion-item>
 
     <ion-button expand="full" (click)="avancar()">Seguinte</ion-button>
-  </div>
+    <ion-button expand="full" (click)="deleteTravel(travel)">Delete</ion-button>
+    
 
+  </div>
   <div *ngIf="paginaAtual === 2">
     <ion-item>
       <ion-label>Localização</ion-label>
-      <ion-input type="text" placeholder="Digite a localização"></ion-input>
+      <ion-input
+        type="text"
+        placeholder="Digite a localização"
+        
+      ></ion-input>
+
     </ion-item>
 
     <ion-item>

@@ -1,5 +1,5 @@
 <ion-item lines="none" class="custom-item">
-  <ion-card class="custom-card">
+  <ion-card class="custom-card" (click)="openModal()">
     <!-- Imagem principal -->
     <img
       alt="place"
@@ -12,7 +12,7 @@
       <!-- Lado esquerdo -->
       <div class="left-section">
         <ion-icon name="person-circle-outline" class="usericon"></ion-icon>
-        <ion-text>{{travel.description}}</ion-text>
+        <ion-text>{{travel.prop1}}</ion-text>
       </div>
 
       <!-- Lado direito -->
@@ -24,7 +24,7 @@
 
     <!-- Exibição do texto dinâmico -->
     <div class="hover-text">
-      {{ travel.map }} <!-- Aqui exibimos a variável 'local' -->
+      {{travel.description}}  <!-- Aqui exibimos a variável 'local' -->
     </div>
   </ion-card>
 </ion-item>

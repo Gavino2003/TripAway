@@ -20,13 +20,14 @@ async createTravel() {
   const travel: Travel = {
     id: "",
     description: 'Viagem Lisboa',
-    type: 'work',
-    state: 'active',
+    type: 'lazer',
+    state: 'planeamento',
     map: 'Lisboa',
+    
     startAt: new Date().toISOString(),
     endAt: new Date().toISOString(),
-    createdBy: 'Vasco',
-    prop1: 'Propriedade 1',
+    createdBy: '',
+    prop1: 'VascoGavino',
     prop2: 'Propriedade 2',
     prop3: 'Propriedade 3',
     isFav: true,
@@ -40,28 +41,5 @@ async createTravel() {
   }
 }
 
-async deleteTravel() {
-  const travel: Travel = {
-    id: "28060408-1ea5-412b-bde6-fc0de9babd4e",
-    description: 'Descrição da nova viagem',
-    type: 'work',
-    state: 'active',
-    map: 'paris',
-    startAt: new Date().toISOString(),
-    endAt: new Date().toISOString(),
-    createdBy: 'Vasco',
-    prop1: 'Propriedade 1',
-    prop2: 'Propriedade 2',
-    prop3: 'Propriedade 3',
-    isFav: true,
-  };
-  try {
-    await this.travelsService.deleteTravel(travel);
-   
-    console.log('Viagem deletada:', travel);
-  } catch (error) {
-    console.error('Erro ao deletar viagem:', error);
-  }
 
-}
 }

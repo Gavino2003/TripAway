@@ -11,8 +11,8 @@ export class HomePage {
  travels: Travel[] = [{
   id: "7ac3e40b-4d42-4f8b-83ba-df851624476a",
   description: 'Descrição da nova viagem',
-  type: 'work',
-  state: 'active',
+  type: 'lazer',
+  state: 'planeamento',
   map: 'angola',
   startAt: new Date().toISOString(),
   endAt: new Date().toISOString(),
