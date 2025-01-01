@@ -13,6 +13,7 @@ export class TripcardComponent  implements OnInit {
   local: string = '';
   creatorname: string = '';
   description: string = '';
+  mode: 'create' | 'view' = 'create';;
   ngOnInit() {
     this.description = this.travel.description;
     this.local = this.travel.local;
@@ -21,7 +22,7 @@ export class TripcardComponent  implements OnInit {
   async openModal() {
     const modal = await this.modalController.create({
       component: ModalviagensComponent,
-      componentProps: { travel : this.travel}, // Passa o dado 'local' ao modal
+      componentProps: { mode: 'view', travel : this.travel}, // Passa o dado 'local' ao modal
       backdropDismiss: false, // Impede o fechamento clicando fora do modal
     });
     await modal.present();

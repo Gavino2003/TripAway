@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Informações da Viagem</ion-title>
+    {{ mode === 'create' ? 'Criar Viagem' : 'Detalhes da Viagem' }}
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">Fechar</ion-button>
     </ion-buttons>
@@ -59,8 +59,13 @@
       <ion-datetime *ngIf="showDateFim" presentation="date" [(ngModel)]="travel.endAt" (ionChange)="toggleDateFim()" display-format="DD/MM/YYYY"></ion-datetime>
     </ion-item>
 
-    <ion-button expand="full" (click)="avancar()">Seguinte</ion-button>
-    <ion-button expand="full" (click)="deleteTravel(travel)">Delete</ion-button>
+    <div *ngIf="mode === 'create'">
+    <ion-button expand="full" (click)="saveTravel();avancar()">Criar Viagem</ion-button>
+  </div>
+  <div *ngIf="mode === 'view'">
+    <ion-button expand="full" (click)="saveTravel();avancar()">Guardar Alterações</ion-button>
+    <ion-button color="danger" expand="full" (click)="deleteTravel(travel)">Apagar Viagem</ion-button>
+  </div>
     
 
   </div>
@@ -68,30 +73,35 @@
     <ion-item>
       <ion-label>Localização</ion-label>
       <ion-input
+        id="localizacao-input"
         type="text"
-        placeholder="Digite a localização"
-        
+        [(ngModel)]="autocomplete.input"
+        (ionInput)="updateSearchResults()"
+        placeholder="Insira uma localização"
       ></ion-input>
-
     </ion-item>
-
-    <ion-item>
-      <ion-label>Imagem da Localização</ion-label>
+    
+    <!-- Exibindo as sugestões de locais -->
+    <ion-list *ngIf="autocompleteItems.length > 0">
+      <ion-item *ngFor="let item of autocompleteItems" (click)="selectSearchResult(item)">
+        <ion-label>{{ item.description }}</ion-label>
+      </ion-item>
+    </ion-list>
+    <!-- Exibir o mapa abaixo do input de localização -->
+<div *ngIf="showMap" id="map" style="height: 300px; width: 100%;"></div>
+    <!-- Lista de paragens -->
+    <ion-item *ngIf="showMap">
+      <ion-label>Paragens</ion-label>
+      <ion-button expand="full" (click)="addStop()">Adicionar Paragem</ion-button>
     </ion-item>
-
-    <ion-item>
-      <ion-label>Pontos do Percurso</ion-label>
-      <ion-list>
-        <ion-item>
-          <ion-label>Ponto 1</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>Ponto 2</ion-label>
-        </ion-item>
-        <!-- Adicione mais pontos conforme necessário -->
-      </ion-list>
-    </ion-item>
-
+    <ion-list *ngIf="paragens.length > 0">
+      <ion-item *ngFor="let paragem of paragens; let i = index">
+        <ion-input placeholder="Local"></ion-input>
+        <ion-input placeholder="Data Início"></ion-input>
+        <ion-input placeholder="Data Fim"></ion-input>
+        <ion-button (click)="removeStop(i)">Remover</ion-button>
+      </ion-item>
+    </ion-list>
     <ion-button expand="full" (click)="finalizar()">Finalizar</ion-button>
   </div>
 </ion-content>
