@@ -74,7 +74,26 @@ export class TravelsService {
     }
   }
 
+  async updateTravel(travel: Travel) {
+    const headers = new HttpHeaders({
+      Authorization: `Basic ${btoa(`${this.username}:${this.password}`)}`,
+    });
+  
+    try {
+      await firstValueFrom(
+        this.http.put(`${this.apiUrl}/travels/${travel.id}`, travel, { headers })
+      );
+      // Sucesso: podes adicionar um feedback aqui, como um toast ou console.log
+    } catch (error: any) {
+      // Tratamento de erro: podes adicionar um feedback aqui, como um toast ou console.log
+      console.error('Erro ao atualizar viagem:', error.error);
+    }
+  }
+
 }
+
+
+
 
 export interface Travel {
   id: string;
@@ -85,40 +104,36 @@ export interface Travel {
   startAt: string;
   endAt: string;
   createdBy : string;
-  //createdAt: string;
-  //updateBy: string;
-  //updateAt: string;
-  //travelid: string;
-  
-  //startDate: string;
-  //endDate: string;
-  //price: number;
-  prop1: string;//username
-  prop2: string;//password
-  prop3: string;//imagem
-  isFav: boolean;
-}
-export interface TravelLocations {
-  id: string;
-  description: string;
-  type : 'lazer' | 'negocios' | 'aventura';
-  state: 'decorrer' | 'concluida' | 'planeamento';
-  //map: string;
-  startAt: string;
-  endAt: string;
-  createdBy : string;
-  //createdAt: string;
-  //updateBy: string;
-  //updateAt: string;
-  //travelid: string;
-  
-  //startDate: string;
-  //endDate: string;
-  //price: number;
   prop1: string;
   prop2: string;
   prop3: string;
   isFav: boolean;
 }
 
+export interface TravelLocations {
+  id: string;
+  description: string;
+  type : 'ponto_interesse' | 'alojamento' | 'restaurante' | 'transporte' | 'outro';
+  state: 'decorrer' | 'visitada' | 'planeamento';
+  map: string;
+  startAt: string;
+  endAt: string;
+  prop1: string;
+  prop2: string;
+  prop3: string;
+  isFav: boolean;
+  travelId: number;
+}
+
+export interface TravelComments {
+  id: number;
+  comment: string;
+  travelId: number;
+}
+
+export interface TravelLocationComments {
+  id: number;
+  comment: string;
+  travelLocationId: number;
+}
 

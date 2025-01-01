@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ModalController, ToastController } from '@ionic/angular';
 import { ModalviagensComponent } from '../modalviagens/modalviagens.component';
+import { Travel } from 'src/app/api/travels.service';
 
 @Component({
   selector: 'app-navigationbtn',
@@ -9,6 +10,7 @@ import { ModalviagensComponent } from '../modalviagens/modalviagens.component';
 })
 export class NavigationbtnComponent  implements OnInit {
   isDarkMode: boolean = false;
+  travels: Travel[] = [];
   constructor(private modalController: ModalController) { 
     this.isDarkMode = document.body.classList.contains('dark');
   }
@@ -17,6 +19,7 @@ export class NavigationbtnComponent  implements OnInit {
   async openModal() {
     const modal = await this.modalController.create({
       component: ModalviagensComponent,
+      componentProps: { mode: 'create', travel : this.travels}, // Passa o dado 'local' ao modal
       backdropDismiss: false, // Impede o fechamento clicando fora do modal
     });
     await modal.present();
