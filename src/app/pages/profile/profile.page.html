@@ -1,14 +1,27 @@
 <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-img src="assets/images/button_back.png" alt="Logotipo" style="width: 80px; height: 80px;"></ion-img>
+      </ion-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+    <ion-buttons slot="end">
+      <ion-img src="assets/icon/favicon.png" alt="Logotipo" style="width: 80px; height: 80px;"></ion-img>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <div class="center-container">
-    <ion-item class="custom-input" lines="none">
-    <ion-button (click)="createTravel()">criar</ion-button>
-    </ion-item>
-    
+  <div class="profile-container">
+    <img src="assets/images/profile.png" alt="Profile Image" class="profile-img">
+    <p class="profile-name">Esteves</p>
+    <p class="profile-description">Estudo na escola ESTG sao defeciente informatico que decidiu escrevever uma informação nada percetivel.</p>
+    <button class="profile-button">Seguir</button>
   </div>
+  
+
+  <ion-list lines="inset" class="listaviagens">
+    <!--<app-tripcard *ngFor="let travel of travels" [travel]="travel"></app-tripcard>-->
+  </ion-list>
 </ion-content>

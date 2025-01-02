@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
+import { TripcardComponent } from 'src/app/components/tripcard/tripcard.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProfilePageRoutingModule
-  ],
+    ProfilePageRoutingModule,
+    ],
   declarations: [ProfilePage]
 })
 export class ProfilePageModule {}
