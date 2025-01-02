@@ -90,6 +90,37 @@ export class TravelsService {
     }
   }
 
+  async getTravelLocations(travelId: string) {
+    const headers = new HttpHeaders({
+      Authorization: `Basic ${btoa(`${this.username}:${this.password}`)}`,
+    });
+  
+    try {
+      const url = `${this.apiUrl}/travels/${travelId}/locations`;
+      const travelLocations = await firstValueFrom(this.http.get<TravelLocations[]>(url, { headers }));
+      return travelLocations;
+    } catch (error: any) {
+      console.error('Erro ao obter localizações da viagem:', error.error);
+      throw error;
+    }
+  }
+  
+  async postTravelLocation(location: TravelLocations) {
+    const headers = new HttpHeaders({
+      Authorization: `Basic ${btoa(`${this.username}:${this.password}`)}`,
+    });
+  
+    try {
+      const url = `${this.apiUrl}/travels/locations`;
+      await firstValueFrom(this.http.post(url, location, { headers }));
+      // Sucesso: podes adicionar um feedback aqui, como um toast ou console.log
+    } catch (error: any) {
+      console.error('Erro ao adicionar localização para a viagem:', error.error);
+      throw error;
+    }
+  }
+
+
 }
 
 
@@ -124,6 +155,8 @@ export interface TravelLocations {
   isFav: boolean;
   travelId: number;
 }
+
+
 
 export interface TravelComments {
   id: number;

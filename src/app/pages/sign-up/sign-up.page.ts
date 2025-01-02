@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { LoginService } from '../../api/Login/login.service'; // Adjust the path accordingly
 
 @Component({
   selector: 'app-sign-up',
@@ -15,8 +16,10 @@ export class SignUpPage {
 
   constructor(
     private alertController: AlertController,
+    private router: Router,
     private toastController: ToastController,
-    private router: Router
+    private loginService: LoginService
+  
   ) {}
 
   // Função para mostrar o Toast
@@ -51,8 +54,13 @@ export class SignUpPage {
       return;
     }
 
-    
-
+      
+    try {
+      const response = await this.loginService.registerUser(this.username, this.password);
+      console.log('Usuário registrado com sucesso:', response);
+    } catch (error) {
+      console.error('Erro ao registrar usuário:', error);
+    }
     // Processar o envio do formulário (ex: chamada de API para registro)
     console.log('Form submitted', this.username, this.email, this.password);
     this.presentToast('Conta criado com sucesso!', 'success');

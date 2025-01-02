@@ -1,6 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    {{ mode === 'create' ? 'Criar Viagem' : 'Detalhes da Viagem' }}
+    <ion-title>
+      {{ mode === 'create' ? 'Criar Viagem' : 'Detalhes da Viagem' }}
+    </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">Fechar</ion-button>
     </ion-buttons>
@@ -8,17 +10,23 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div *ngIf="paginaAtual === 1">
+  <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+  <!-- Página 1: Dados gerais da viagem -->
+  <div *ngIf="!isLoading && paginaAtual === 1">
     <ion-item>
       <ion-label position="floating">Descrição</ion-label>
-      <ion-input type="text" placeholder="Digite a descrição" [(ngModel)]="travel.description"></ion-input>
+      <ion-input
+        type="text"
+        placeholder="Digite a descrição"
+        [(ngModel)]="travel.description"
+      ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Tipo da Viagem</ion-label>
-      <ion-select placeholder="Selecione"  [(ngModel)]="travel.type">
+      <ion-select placeholder="Selecione" [(ngModel)]="travel.type">
         <ion-select-option value="lazer">Lazer</ion-select-option>
-        <ion-select-option value="negocios">Negocios</ion-select-option>
+        <ion-select-option value="negocios">Negócios</ion-select-option>
         <ion-select-option value="aventura">Aventura</ion-select-option>
       </ion-select>
     </ion-item>
@@ -26,82 +34,101 @@
     <ion-item>
       <ion-label>Estado da Viagem</ion-label>
       <ion-select placeholder="Selecione" [(ngModel)]="travel.state">
-      
-      <ion-select-option value="planeamento">Planeamento</ion-select-option>
-      <ion-select-option value="decorrer">A decorrer</ion-select-option>
-      <ion-select-option value="concluida">Concluida</ion-select-option>
+        <ion-select-option value="planeamento">Planeamento</ion-select-option>
+        <ion-select-option value="decorrer">A decorrer</ion-select-option>
+        <ion-select-option value="concluida">Concluída</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Data Início</ion-label>
       <ion-icon name="calendar" slot="end" (click)="toggleDateInicio()"></ion-icon>
-      <ion-input 
-      [(ngModel)]="travel.startAt" 
-      [placeholder]="'Selecione a data'" 
-      (click)="toggleDateInicio()"
-      [readonly]="true"
-      [value]="travel.startAt | date:'dd/MM/yyyy'">
-      </ion-input>
-      <ion-datetime *ngIf="showDateInicio" presentation="date" [(ngModel)]="travel.startAt" (ionChange)="toggleDateInicio()" display-format="DD/MM/YYYY"></ion-datetime>
+      <ion-input
+        [(ngModel)]="travel.startAt"
+        placeholder="Selecione a data"
+        [readonly]="true"
+        [value]="travel.startAt | date:'dd/MM/yyyy'"
+        (click)="toggleDateInicio()"
+      ></ion-input>
+      <ion-datetime
+        *ngIf="showDateInicio"
+        presentation="date"
+        [(ngModel)]="travel.startAt"
+        (ionChange)="toggleDateInicio()"
+        display-format="DD/MM/YYYY"
+      ></ion-datetime>
     </ion-item>
-    
+
     <ion-item>
       <ion-label position="floating">Data Fim</ion-label>
       <ion-icon name="calendar" slot="end" (click)="toggleDateFim()"></ion-icon>
-      <ion-input 
-      [(ngModel)]="travel.endAt" 
-      [placeholder]="'Selecione a data'" 
-      (click)="toggleDateFim()"
-      [readonly]="true"
-      [value]="travel.endAt | date:'dd/MM/yyyy'">
-      </ion-input>
-      <ion-datetime *ngIf="showDateFim" presentation="date" [(ngModel)]="travel.endAt" (ionChange)="toggleDateFim()" display-format="DD/MM/YYYY"></ion-datetime>
+      <ion-input
+        [(ngModel)]="travel.endAt"
+        placeholder="Selecione a data"
+        [readonly]="true"
+        [value]="travel.endAt | date:'dd/MM/yyyy'"
+        (click)="toggleDateFim()"
+      ></ion-input>
+      <ion-datetime
+        *ngIf="showDateFim"
+        presentation="date"
+        [(ngModel)]="travel.endAt"
+        (ionChange)="toggleDateFim()"
+        display-format="DD/MM/YYYY"
+      ></ion-datetime>
     </ion-item>
 
     <div *ngIf="mode === 'create'">
-    <ion-button expand="full" (click)="saveTravel();avancar()">Criar Viagem</ion-button>
+      <ion-button expand="full" (click)="saveTravel(); avancar()">Criar Viagem</ion-button>
+    </div>
+    <div *ngIf="mode === 'view'">
+      <ion-button expand="full" (click)="saveTravel(); avancar()">Guardar Alterações</ion-button>
+      <ion-button color="danger" expand="full" (click)="deleteTravel(travel)">Apagar Viagem</ion-button>
+    </div>
   </div>
-  <div *ngIf="mode === 'view'">
-    <ion-button expand="full" (click)="saveTravel();avancar()">Guardar Alterações</ion-button>
-    <ion-button color="danger" expand="full" (click)="deleteTravel(travel)">Apagar Viagem</ion-button>
-  </div>
-    
 
-  </div>
-  <div *ngIf="paginaAtual === 2">
+  <!-- Página 2: Paragens -->
+  <div *ngIf="!isLoading &&  paginaAtual === 2">
     <ion-item>
       <ion-label>Localização</ion-label>
       <ion-input
-        id="localizacao-input"
         type="text"
         [(ngModel)]="autocomplete.input"
-        (ionInput)="updateSearchResults()"
         placeholder="Insira uma localização"
+        (ionInput)="updateSearchResults()"
       ></ion-input>
     </ion-item>
-    
-    <!-- Exibindo as sugestões de locais -->
+
+    <!-- Lista de sugestões -->
     <ion-list *ngIf="autocompleteItems.length > 0">
       <ion-item *ngFor="let item of autocompleteItems" (click)="selectSearchResult(item)">
         <ion-label>{{ item.description }}</ion-label>
       </ion-item>
     </ion-list>
-    <!-- Exibir o mapa abaixo do input de localização -->
-<div *ngIf="showMap" id="map" style="height: 300px; width: 100%;"></div>
+
+    <!-- Mapa -->
+    <div *ngIf="showMap" id="map" style="height: 300px; width: 100%; margin-top: 16px;"></div>
+
     <!-- Lista de paragens -->
-    <ion-item *ngIf="showMap">
-      <ion-label>Paragens</ion-label>
-      <ion-button expand="full" (click)="addStop()">Adicionar Paragem</ion-button>
-    </ion-item>
     <ion-list *ngIf="paragens.length > 0">
       <ion-item *ngFor="let paragem of paragens; let i = index">
-        <ion-input placeholder="Local"></ion-input>
-        <ion-input placeholder="Data Início"></ion-input>
-        <ion-input placeholder="Data Fim"></ion-input>
-        <ion-button (click)="removeStop(i)">Remover</ion-button>
+        <ion-input
+          placeholder="Local"
+          [(ngModel)]="paragem.location"
+        ></ion-input>
+        <ion-input
+          placeholder="Data Início"
+          [(ngModel)]="paragem.startAt"
+        ></ion-input>
+        <ion-input
+          placeholder="Data Fim"
+          [(ngModel)]="paragem.endAt"
+        ></ion-input>
+        <ion-button color="danger" (click)="removeStop(i)">Remover</ion-button>
       </ion-item>
     </ion-list>
+
+    <ion-button expand="full" (click)="addStop()">Adicionar Paragem</ion-button>
     <ion-button expand="full" (click)="finalizar()">Finalizar</ion-button>
   </div>
 </ion-content>

@@ -18,7 +18,7 @@ export class ModalviagensComponent implements OnInit {
   showDateFim: boolean = false;
   modalController: any;
   teste: string = 'teste';
-  
+  isLoading: boolean = false;  // Controle de carregamento
   GoogleAutocomplete: google.maps.places.AutocompleteService;
   autocomplete: { input: string; };
   autocompleteItems: any[] = [];  // Lista de resultados de autocompletar
@@ -187,7 +187,44 @@ loadMap(lat: number, lng: number) {
 
   avancar() {
     this.paginaAtual = 2;  // Muda para a segunda seção
+    this.loadTravelData();
   }
+
+  loadTravelData() {
+    this.isLoading = true;
+  
+    // Se não existir nenhuma localização, inicializa como vazio
+    if (!this.travel || !this.travel.locations || this.travel.locations.length === 0) {
+      console.log('Nenhuma localização encontrada na viagem.');
+      this.isLoading = false;
+      return;
+    }
+  
+    // Atribuir a descrição ao autocomplete.input
+    this.autocomplete.input = this.travel.locations[0]?.description || '';
+  
+    // Preencher a primeira posição do array `paragens` com a localização inicial
+    const firstLocation = this.travel.locations[0];
+    if (firstLocation) {
+      this.paragens[0] = {
+        location: firstLocation.description,
+        startAt: firstLocation.startAt || '',
+        endAt: firstLocation.endAt || '',
+      };
+    }
+  
+    // Preencher as demais paragens com os dados a partir da posição 1
+    this.paragens = [
+      this.paragens[0], // Mantém a primeira paragem
+      ...this.travel.locations.slice(1), // Adiciona as demais paragens
+    ];
+  
+    console.log('Dados da viagem carregados:', this.travel);
+  
+    this.isLoading = false;
+  }
+
+ 
 
   toggleDateInicio() {
     this.showDateInicio = !this.showDateInicio;
@@ -197,8 +234,63 @@ loadMap(lat: number, lng: number) {
     this.showDateFim = !this.showDateFim;
   }
 
-  finalizar() {
-    // Fechar a modal ao finalizar
-    this.closeModal();
+  async finalizar() {
+    if (this.paragens.length === 0) {
+      console.error('Nenhuma localização foi adicionada.');
+      return;
+    }
+  
+    try {
+      if (!this.travel || !this.travel.id) {
+        console.error('ID da viagem não encontrado');
+        return;
+      }
+  
+      for (let i = 0; i < this.paragens.length; i++) {
+        const stop = this.paragens[i];
+  
+        if (!stop.location) {
+          console.error(`Localização na posição ${i} não preenchida`);
+          continue;
+        }
+  
+        const location = {
+          id: '', // O ID será gerado pelo servidor
+          description: stop.location,
+          startAt: stop.startAt,
+          endAt: stop.endAt,
+          type: 'alojamento' as 'alojamento' | 'ponto_interesse' | 'restaurante' | 'transporte' | 'outro',
+          state: 'planeamento' as 'planeamento' | 'decorrer' | 'visitada',
+          map: '', // O mapa será gerado pelo servidor
+          prop1: '',
+          prop2: '',
+          prop3: '',
+          isFav: false,
+          travelId: this.travel.id,
+        };
+  
+        try {
+          console.log('Tentando criar localização:', location);
+          const response = await this.travelsService.postTravelLocation(location);
+          console.log('Localização criada com sucesso:', response);
+        } catch (error: any) {
+          console.error('Erro ao criar localização específica:', {
+            error: error,
+            errorMessage: error.message,
+            location: location,
+            status: error.status,
+            response: error.error,
+          });
+        }
+      }
+  
+      this.closeModal();
+    } catch (error: any) {
+      console.error('Erro geral ao criar localizações:', {
+        error: error,
+        message: error.message,
+        status: error.status,
+      });
+    }
   }
 }
