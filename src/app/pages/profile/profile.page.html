@@ -20,7 +20,11 @@
     <button class="profile-button">Seguir</button>
   </div>
   
-<div>
+<div class="listcontainer">
+  <div class="list-header">
+    <div class="header-bar"></div>
+    <h2>Viagens</h2>
+  </div>
   <ion-list lines="inset" class="listaviagens">
     <app-tripcard *ngFor="let travel of travels" [travel]="travel"></app-tripcard>
   </ion-list>
