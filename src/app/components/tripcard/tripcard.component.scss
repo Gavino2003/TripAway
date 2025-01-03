@@ -11,7 +11,7 @@
   @media (max-width: 767px) {
     .custom-item {
       width: 100%; /* Ocupa toda a largura do dispositivo no telemóvel */
-      padding-left: 0px;
+      padding-left: 10px;
     }
   }
   .usericon{
@@ -106,4 +106,6 @@
   .custom-card:hover .hover-text {
     opacity: 1; /* Torna o texto visível ao passar o rato */
   }
+  
+
   

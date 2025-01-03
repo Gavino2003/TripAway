@@ -2,12 +2,12 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button>
-        <ion-img src="assets/images/button_back.png" alt="Logotipo" style="width: 80px; height: 80px;"></ion-img>
+        <ion-img src="assets/images/button_back.png" alt="Logotipo" class="buttonback" [routerLink]="'/home'" name="home"></ion-img>
       </ion-button>
     </ion-buttons>
     <ion-title></ion-title>
     <ion-buttons slot="end">
-      <ion-img src="assets/icon/favicon.png" alt="Logotipo" style="width: 60px; height: 60px;"></ion-img>
+      <ion-img src="assets/icon/favicon.png" alt="Logotipo" class="logoimage"></ion-img>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -20,8 +20,10 @@
     <button class="profile-button">Seguir</button>
   </div>
   
-
+<div>
   <ion-list lines="inset" class="listaviagens">
-    <!--<app-tripcard *ngFor="let travel of travels" [travel]="travel"></app-tripcard>-->
+    <app-tripcard *ngFor="let travel of travels" [travel]="travel"></app-tripcard>
   </ion-list>
+</div>
+  
 </ion-content>

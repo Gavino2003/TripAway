@@ -8,6 +8,7 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
 import { TripcardComponent } from 'src/app/components/tripcard/tripcard.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { TripcardComponent } from 'src/app/components/tripcard/tripcard.componen
     FormsModule,
     IonicModule,
     ProfilePageRoutingModule,
+    ComponentsModule
     ],
   declarations: [ProfilePage]
 })
